@@ -1,0 +1,6 @@
+{
+  "name": "Developer Portfolio",
+  "description": "A highly animated, dynamic developer portfolio and admin dashboard featuring server-side database integration, contact form validation, edit capabilities, and AI-powered chat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
