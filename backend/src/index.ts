@@ -32,12 +32,17 @@ app.use((req, res, next) => {
 });
 
 // Auth check middleware
-interface AuthenticatedRequest extends Request {
-  user?: { email: string; name: string };
-}
+type AuthenticatedRequest = Request & {
+  user?: {
+    email: string;
+    name: string;
+  };
+};
 
 function checkAuth(req: AuthenticatedRequest, res: Response, next: NextFunction) {
-  const authHeader = req.headers.authorization;
+  //const authHeader = req.headers.authorization;
+  //const authHeader = req.header('Authorization');
+  const authHeader = (req as any).headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     res.status(401).json({ error: 'Authorization required' });
     return;
