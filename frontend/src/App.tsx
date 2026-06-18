@@ -78,7 +78,7 @@ export default function App() {
       <NavBar
         isAdminMode={false}
         onAdminClick={() => {
-           window.open('http://localhost:5174', '_blank');
+           window.open('https://portfolio-v1-g39h.vercel.app/', '_blank');
         }}
       />
 
