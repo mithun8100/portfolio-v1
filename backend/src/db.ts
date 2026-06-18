@@ -9,13 +9,29 @@ export function hashPassword(password: string): string {
 }
 
 export async function connectDB() {
-  const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio';
+  const uri = process.env.MONGODB_URI;
+
+console.log('Mongo URI Loaded:', uri?.replace(/\/\/.*?:.*?@/, '//***:***@'));
+console.log('Mongoose Version:', mongoose.version);
+  
+  if (!uri) {
+    console.error('❌ MONGODB_URI is not defined in .env file');
+    process.exit(1);
+  }
+
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+      connectTimeoutMS: 10000,
+    });
     console.log('✅ Connected to MongoDB');
     await seedDatabase();
-  } catch (error) {
+  } catch (error: any) {
     console.error('❌ MongoDB connection error:', error);
+    if (error.code === 'ECONNREFUSED' && uri.includes('+srv')) {
+      console.error('💡 TIP: Your network/DNS is blocking MongoDB Atlas SRV records.');
+      console.error('   Try changing your DNS to 8.8.8.8 or use a non-SRV connection string.');
+    }
     process.exit(1);
   }
 }

@@ -58,7 +58,7 @@ function checkAuth(req: AuthenticatedRequest, res: Response, next: NextFunction)
 // -------------------------------------------------------------
 // Database Connection
 // -------------------------------------------------------------
-connectDB();
+await connectDB();
 
 // -------------------------------------------------------------
 // API Endpoints
