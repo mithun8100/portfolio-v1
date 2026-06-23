@@ -868,8 +868,9 @@ export default function AdminDashboard({ onRefreshData, projects, skills, experi
                       <select value={skillForm.category} onChange={e => setSkillForm({ ...skillForm, category: e.target.value as any })} className="w-full px-4 py-2.5 rounded bg-neutral-950 border border-white/5 text-white text-sm focus:outline-none">
                         <option value="Frontend">Frontend</option>
                         <option value="Backend">Backend</option>
-                        <option value="CRM">CRM</option>
-                        <option value="TOOLS & DEVOPS">DevOps</option>
+                        <option value="Cloud & Network">Cloud & Network</option>
+                        <option value="Tools & DevOps">Tools & DevOps</option>
+                        <option value="GenAI">GenAI</option>
                       </select>
                     </div>
                     <div>
