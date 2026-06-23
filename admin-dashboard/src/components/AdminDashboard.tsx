@@ -869,7 +869,7 @@ export default function AdminDashboard({ onRefreshData, projects, skills, experi
                         <option value="Frontend">Frontend</option>
                         <option value="Backend">Backend</option>
                         <option value="CRM">CRM</option>
-                        <option value="DevOps">DevOps</option>
+                        <option value="TOOLS & DEVOPS">DevOps</option>
                       </select>
                     </div>
                     <div>
